@@ -9,6 +9,10 @@ import { Element } from '../server-element/element.model';
 export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<Element>();
   @Output() blueprintCreated = new EventEmitter<Element>();;
+
+
+  // This method manipulates the DOM to access the form input element referenced
+  // by 'serverContentInput' tag.
   @ViewChild('serverContentInput') serverContentInput: ElementRef;
 
   constructor() { }

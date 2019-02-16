@@ -5,12 +5,17 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element *ngFor="let element of serverElements" [element]="element">
+      <button class="btn btn-primary" (click)="onChangeFirst()">Change first element</button>
+      <button class="btn btn-danger" (click)="destroyElement()">Remove element</button>
+      <app-server-element 
+        *ngFor="let element of serverElements" 
+        [element]="element"
+        [name]="element.name">
         <!-- If we put something in the app component selector,
         angular will get rid of it by default.
         To get it working, we add the ng-content selector in our app-server-element HTML
         component. -->
-        <p>
+        <p #contentParagraph>
           <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
           <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
         </p>
